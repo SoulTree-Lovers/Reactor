@@ -37,4 +37,11 @@ class Operator1Test {
             .expectNextCount(100)
             .verifyComplete();
     }
+
+    @Test
+    void fluxFlatMapGugu() {
+        StepVerifier.create(operator1.fluxFlatMapGugu())
+            .expectNextCount(81)
+            .verifyComplete();
+    }
 }
