@@ -32,4 +32,14 @@ public class Operator1 {
             .flatMap(it -> Flux.range(it * 10, 10))
             .log();
     }
+
+    public Flux<Integer> fluxFlatMapGugu() {
+        return Flux.range(1, 9)
+            .flatMap(i -> Flux.range(1, 9)
+                .map(j -> {
+                    System.out.printf("%d * %d = %d\n", i, j, i*j);
+                    return i * j;
+                })
+            );
+    }
 }
